@@ -4,6 +4,11 @@ void main() {
   runApp(const DhikrCounter());
 }
 
+const alphaBlue = Color(0xFF4664FF);
+const alphaWhite = Color(0xFFF9F9F9);
+const alphaBlack = Color(0xFF232323);
+const alphaGrey = Color(0xFF9F9F9F);
+
 class DhikrCounter extends StatelessWidget {
   const DhikrCounter({super.key});
 
@@ -21,6 +26,7 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: alphaWhite,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.only(right: 15, left: 15, top: 15),
@@ -31,21 +37,28 @@ class Home extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.white,
+                      ),
                       height: 38,
-                      color: Colors.blue,
                     ),
                   ),
                   Container(
                     width: 54,
                     height: 38,
-                    color: Colors.grey,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.white,
+                      ),
+                    margin: const EdgeInsets.only(left: 20),
                   ),
                 ],
               ),
-              Text('saf'),
-              Text('saf'),
-              Text('saf'),
-              Text('saf'),
+              const SizedBox(height: 20,),
+              const Text('top panel'),
+              const Text('counter pabel'),
+              const Text('db panel'),
             ],
           ),
         ), 
