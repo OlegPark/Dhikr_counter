@@ -7,7 +7,8 @@ class CounterPanel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white, borderRadius: BorderRadius.circular(10),
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(10),
       ),
       child: Row(
         children: [
@@ -17,6 +18,8 @@ class CounterPanel extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.blue,
               ),
+              height: 35,
+              width: 35,
             ),
           ),
         ],
