@@ -15,7 +15,6 @@ class Home extends StatelessWidget {
           child: Column(
             children: [
               TopPanel(),
-              SizedBox(height: 20,),
               Text('counter pabel'),
               Text('db panel'),
             ],
