@@ -1,3 +1,4 @@
+import 'counter_panel.dart';
 import 'package:flutter/material.dart';
 import '../../constanst/constants.dart';
 import 'top_panel.dart';
@@ -15,7 +16,7 @@ class Home extends StatelessWidget {
           child: Column(
             children: [
               TopPanel(),
-              Text('counter pabel'),
+              CounterPanel(),
               Text('db panel'),
             ],
           ),
