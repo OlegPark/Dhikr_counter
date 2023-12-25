@@ -17,6 +17,7 @@ class DBPanel extends StatelessWidget {
         ),
         padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
               'Last saved dhikrs',
@@ -28,6 +29,7 @@ class DBPanel extends StatelessWidget {
               width: 60,
               height: 2,
               color: alphaBlue,
+              margin: const EdgeInsets.only(top: 3, bottom: 15),
             ),
             Expanded(
               child: ListView.builder(
@@ -35,8 +37,12 @@ class DBPanel extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return Container(
                     height: 48,
-                    decoration: BoxDecoration(color: alphaGreyLight),
-                    child: Text('$index'),
+                    decoration: BoxDecoration(
+                      color: alphaGreyLight,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    margin: const EdgeInsets.only(top: 10),
+                    child: Center(child: Text('$index'),),
                   );
                 },
               ),
