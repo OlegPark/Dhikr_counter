@@ -1,3 +1,5 @@
+import 'package:dhikr_counter/pages/home/db_panel.dart';
+
 import 'counter_panel.dart';
 import 'package:flutter/material.dart';
 import '../../constanst/constants.dart';
@@ -17,7 +19,7 @@ class Home extends StatelessWidget {
             children: [
               TopPanel(),
               CounterPanel(),
-              Text('db panel'),
+              DBPanel(),
             ],
           ),
         ), 
