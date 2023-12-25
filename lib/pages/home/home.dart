@@ -13,6 +13,7 @@ class Home extends StatelessWidget {
     return const Scaffold(
       backgroundColor: alphaWhite,
       body: SafeArea(
+        bottom: false,
         child: Padding(
           padding: EdgeInsets.only(right: 15, left: 15, top: 15),
           child: Column(

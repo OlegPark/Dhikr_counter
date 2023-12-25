@@ -34,6 +34,8 @@ class DBPanel extends StatelessWidget {
                 itemCount: 2000,
                 itemBuilder: (context, index) {
                   return Container(
+                    height: 48,
+                    decoration: BoxDecoration(color: alphaGreyLight),
                     child: Text('$index'),
                   );
                 },
