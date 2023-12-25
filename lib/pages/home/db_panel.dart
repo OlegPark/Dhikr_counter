@@ -13,6 +13,10 @@ class DBPanel extends StatelessWidget {
           topRight: Radius.circular(10),
         ),
       ),
+      padding: const EdgeInsets.only(top: 20, left: 20, right: 20),
+      child: Column(
+        
+      ),
     );
   }
 }
