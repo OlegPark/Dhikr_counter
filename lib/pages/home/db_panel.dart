@@ -1,5 +1,7 @@
 import 'package:dhikr_counter/constanst/constants.dart';
+import 'package:dhikr_counter/models/dhikr.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class DBPanel extends StatelessWidget {
   const DBPanel({super.key});
@@ -33,7 +35,7 @@ class DBPanel extends StatelessWidget {
             ),
             Expanded(
               child: ListView.builder(
-                itemCount: 200,
+                itemCount: fakeDB.length,
                 itemBuilder: (context, index) {
                   return Container(
                     decoration: BoxDecoration(
@@ -47,7 +49,7 @@ class DBPanel extends StatelessWidget {
                         SizedBox(
                           width: 50,
                           child: Text(
-                            index == 0 ? '234' : '$index',
+                            fakeDB[index].counter.toString(),
                             style: const TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
@@ -62,10 +64,10 @@ class DBPanel extends StatelessWidget {
                           margin: const EdgeInsets.only(right: 10, left: 5),
                           color: Colors.white,
                         ),
-                        const Expanded(
+                        Expanded(
                           child: Text(
-                            'Заголовок который показывается в Зикре в нашем приложении',
-                            style: TextStyle(
+                            fakeDB[index].title,
+                            style: const TextStyle(
                               fontSize: 12,
                             ),
                             overflow: TextOverflow.ellipsis,
@@ -73,9 +75,9 @@ class DBPanel extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(width: 15,),
-                        const Text(
-                          '19.02.2023',
-                          style: TextStyle(
+                        Text(
+                          DateFormat('dd.MM.yyyy').format(fakeDB[index].date),
+                          style: const TextStyle(
                             fontSize: 10,
                             color: alphaGrey,
                           ),
@@ -86,7 +88,7 @@ class DBPanel extends StatelessWidget {
                             color: Colors.transparent,
                             height: 48,
                             width: 48,
-                            child: const Icon(Icons.do_not_step),
+                            child: Image.asset('assets/images/dots.png'),
                           ),
                         ),
                       ],
@@ -101,3 +103,9 @@ class DBPanel extends StatelessWidget {
     );
   }
 }
+
+final List<Dhikr> fakeDB = [
+  Dhikr(counter: 14, title: 'Name of the file dhikr', date: DateTime.now()),
+  Dhikr(counter: 9, title: 'Name of the file dhikr', date: DateTime.now()),
+  Dhikr(counter: 15, title: 'Name of the file dhikr', date: DateTime.now()),
+];
