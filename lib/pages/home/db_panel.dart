@@ -45,12 +45,18 @@ class DBPanel extends StatelessWidget {
                       children: [
                         Text(
                           '$index',
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 20,
-                            fontWeight: FontWeight.bold
+                            fontWeight: FontWeight.bold,
+                            color: alphaBlue,
                           ),
                         ),
-                        Expanded(
+                        Container(
+                          height: 30,
+                          width: 1,
+                          color: Colors.white,
+                        ),
+                        const Expanded(
                           child: Text(
                             'Заголовок который показывается в Зикре в нашем приложении',
                             style: TextStyle(
@@ -60,9 +66,18 @@ class DBPanel extends StatelessWidget {
                             maxLines: 1,
                           ),
                         ),
-                        Text('19.02.2023'),
+                        const Text(
+                          '19.02.2023',
+                          style: TextStyle(
+                            fontSize: 10,
+                            color: alphaGrey,
+                          ),
+                        ),
                         GestureDetector(
-                          child: SizedBox(
+                          onTap: () {
+                            print("object");
+                          },
+                          child: const SizedBox(
                             height: 48,
                             child: Icon(Icons.do_not_step),
                           ),
