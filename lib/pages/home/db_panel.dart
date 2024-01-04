@@ -77,8 +77,10 @@ class DBPanel extends StatelessWidget {
                           onTap: () {
                             print("object");
                           },
-                          child: const SizedBox(
+                          child: Container(
+                            color: Colors.transparent,
                             height: 48,
+                            width: 48,
                             child: Icon(Icons.do_not_step),
                           ),
                         ),
