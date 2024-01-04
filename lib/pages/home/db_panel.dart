@@ -52,7 +52,11 @@ class DBPanel extends StatelessWidget {
                         ),
                         Expanded(
                           child: Text(
-                            'Заголовок который показывается в Зикре в нашем приложении'),
+                            'Заголовок который показывается в Зикре в нашем приложении',
+                            style: TextStyle(
+                              fontSize: 12,
+                            ),
+                          ),
                         ),
                         Text('19.02.2023'),
                         GestureDetector(
