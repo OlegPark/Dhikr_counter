@@ -56,6 +56,8 @@ class DBPanel extends StatelessWidget {
                             style: TextStyle(
                               fontSize: 12,
                             ),
+                            overflow: TextOverflow.ellipsis,
+                            maxLines: 1,
                           ),
                         ),
                         Text('19.02.2023'),
