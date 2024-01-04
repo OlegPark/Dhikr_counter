@@ -26,6 +26,7 @@ class CounterPanel extends StatelessWidget {
                   ),
                   height: 35,
                   width: 35,
+                  child: Image.asset('assets/images/decrement.png'),
                 ),
               ),
               GestureDetector(
@@ -70,6 +71,7 @@ class CounterPanel extends StatelessWidget {
                   ),
                   height: 35,
                   width: 35,
+                  child: Image.asset('assets/images/zeroing.png'),
                 ),
               ),
             ],

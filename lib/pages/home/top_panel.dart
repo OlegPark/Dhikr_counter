@@ -67,11 +67,7 @@ class TopPanel extends StatelessWidget {
                 color: Colors.white,
               ),
             margin: const EdgeInsets.only(left: 20),
-            child: const Icon(
-              Icons.menu,
-              color: alphaBlue,
-              size: 30,
-            ),
+            child: Image.asset('assets/images/menu.png'),
           ),
         ],
       ),
