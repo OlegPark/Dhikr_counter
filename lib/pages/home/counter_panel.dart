@@ -1,8 +1,15 @@
 import 'package:dhikr_counter/constanst/constants.dart';
 import 'package:flutter/material.dart';
 
-class CounterPanel extends StatelessWidget {
+class CounterPanel extends StatefulWidget {
   const CounterPanel({super.key});
+
+  @override
+  State<CounterPanel> createState() => _CounterPanelState();
+}
+
+class _CounterPanelState extends State<CounterPanel> {
+  int counter = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -37,20 +44,20 @@ class CounterPanel extends StatelessWidget {
                   ),
                   height: 154,
                   width: 154,
-                  child: const Column(
+                  child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      SizedBox(height: 25),
+                      const SizedBox(height: 25),
                       Text(
-                        '33',
-                        style: TextStyle(
+                        counter.toString(),
+                        style: const TextStyle(
                           fontSize: 48,
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
                           height: 1,
                         ),
                       ),
-                      Text(
+                      const Text(
                         'Dhikr',
                         style: TextStyle(
                           fontSize: 12,
