@@ -2,8 +2,21 @@ import 'package:flutter/material.dart';
 
 import '../../constanst/constants.dart';
 
-class TopPanel extends StatelessWidget {
+class TopPanel extends StatefulWidget {
   const TopPanel({super.key,});
+
+  @override
+  State<TopPanel> createState() => _TopPanelState();
+}
+
+class _TopPanelState extends State<TopPanel> {
+  bool isActive = true;
+
+  void toggle() {
+    setState(() {
+      isActive = !isActive;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,34 +36,41 @@ class TopPanel extends StatelessWidget {
               child: Row(
                 children: [
                   Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: alphaBlue,
-                        borderRadius: BorderRadius.circular(8),
-                      ),
-                      height: 30,
-                      alignment: Alignment.center,
-                      child: const Text(
-                        'Activity',
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.white,
+                    child: GestureDetector(
+                      onTap: () => toggle(),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: isActive ? alphaBlue : Colors.white,
+                          borderRadius: BorderRadius.circular(8),
                         ),
-                      )
+                        height: 30,
+                        alignment: Alignment.center,
+                        child: Text(
+                          'Activity',
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: isActive ? Colors.white : alphaGrey,
+                          ),
+                        )
+                      ),
                     ),
                   ),
                   Expanded(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8)
-                      ),
-                      height: 30,
-                      alignment: Alignment.center,
-                      child: const Text(
-                        'Saved',
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: alphaGrey,
+                    child: GestureDetector(
+                      onTap: () => toggle(),
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: !isActive ? alphaBlue : Colors.white,
+                          borderRadius: BorderRadius.circular(8)
+                        ),
+                        height: 30,
+                        alignment: Alignment.center,
+                        child: Text(
+                          'Saved',
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: !isActive ? Colors.white : alphaGrey,
+                          ),
                         ),
                       ),
                     ),
