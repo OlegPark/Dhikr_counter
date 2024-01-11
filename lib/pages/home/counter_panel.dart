@@ -40,7 +40,7 @@ class CounterPanel extends StatelessWidget {
                   child: const Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      SizedBox(height: 15),
+                      SizedBox(height: 25),
                       Text(
                         '33',
                         style: TextStyle(
