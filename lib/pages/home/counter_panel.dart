@@ -11,6 +11,24 @@ class CounterPanel extends StatefulWidget {
 class _CounterPanelState extends State<CounterPanel> {
   int counter = 0;
 
+  void increment() => setState(() => counter++);
+
+  void decrement() {
+    if (counter > 0) {
+      setState(() {
+        counter --;
+      });
+    }
+  }
+
+  void zeroing() {
+    if (counter != 0) {
+      setState(() {
+        counter = 0;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -26,6 +44,7 @@ class _CounterPanelState extends State<CounterPanel> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               GestureDetector(
+                onTap: () => decrement(),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
@@ -37,6 +56,7 @@ class _CounterPanelState extends State<CounterPanel> {
                 ),
               ),
               GestureDetector(
+                onTap: () => increment(),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
@@ -71,6 +91,7 @@ class _CounterPanelState extends State<CounterPanel> {
                 ),
               ),
               GestureDetector(
+                onTap: () => zeroing(),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
