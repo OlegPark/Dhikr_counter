@@ -13,9 +13,7 @@ class _TopPanelState extends State<TopPanel> {
   bool isActive = true;
 
   void toggle() {
-    setState(() {
-      isActive = !isActive;
-    });
+    setState(() => isActive = !isActive);
   }
 
   @override
@@ -37,7 +35,7 @@ class _TopPanelState extends State<TopPanel> {
                 children: [
                   Expanded(
                     child: GestureDetector(
-                      onTap: () => toggle(),
+                      onTap: () => isActive ? null : toggle(),
                       child: Container(
                         decoration: BoxDecoration(
                           color: isActive ? alphaBlue : Colors.white,
@@ -57,7 +55,7 @@ class _TopPanelState extends State<TopPanel> {
                   ),
                   Expanded(
                     child: GestureDetector(
-                      onTap: () => toggle(),
+                      onTap: () => !isActive ? null : toggle(),
                       child: Container(
                         decoration: BoxDecoration(
                           color: !isActive ? alphaBlue : Colors.white,
