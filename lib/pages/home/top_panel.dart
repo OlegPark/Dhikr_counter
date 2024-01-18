@@ -1,14 +1,16 @@
+import 'package:dhikr_counter/pages/home/home.dart';
 import 'package:flutter/material.dart';
 import '../../constanst/constants.dart';
 
 class TopPanel extends StatelessWidget {
-  final bool isActive;
+  // final bool isActive;
   final Function toggle;
-  const TopPanel(this.isActive, this.toggle, {super.key,});
+  const TopPanel(this.toggle, {super.key,});
 
 
   @override
   Widget build(BuildContext context) {
+    final isActive = context.findAncestorStateOfType<HomeState>()!.isActive;
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 20),

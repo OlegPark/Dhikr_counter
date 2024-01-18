@@ -8,10 +8,10 @@ class Home extends StatefulWidget {
   const Home({super.key});
 
   @override
-  State<Home> createState() => _HomeState();
+  State<Home> createState() => HomeState();
 }
 
-class _HomeState extends State<Home> {
+class HomeState extends State<Home> {
 
   
   bool isActive = true;
@@ -42,7 +42,7 @@ class _HomeState extends State<Home> {
           padding: EdgeInsets.only(right: 15, left: 15, top: 15),
           child: Column(
             children: [
-              TopPanel(isActive, toggle),
+              TopPanel(toggle),
               Visibility(visible: isActive, child: const CounterPanel()),
               const DBPanel(),
             ],
