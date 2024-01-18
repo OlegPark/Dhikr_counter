@@ -1,20 +1,11 @@
 import 'package:flutter/material.dart';
-
 import '../../constanst/constants.dart';
 
-class TopPanel extends StatefulWidget {
-  const TopPanel({super.key,});
+class TopPanel extends StatelessWidget {
+  final bool isActive;
+  final Function toggle;
+  const TopPanel(this.isActive, this.toggle, {super.key,});
 
-  @override
-  State<TopPanel> createState() => _TopPanelState();
-}
-
-class _TopPanelState extends State<TopPanel> {
-  bool isActive = true;
-
-  void toggle() {
-    setState(() => isActive = !isActive);
-  }
 
   @override
   Widget build(BuildContext context) {
