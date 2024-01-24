@@ -1,5 +1,6 @@
 import 'package:dhikr_counter/constanst/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class CounterPanel extends StatefulWidget {
   const CounterPanel({super.key});
@@ -11,7 +12,30 @@ class CounterPanel extends StatefulWidget {
 class _CounterPanelState extends State<CounterPanel> {
   int counter = 0;
 
-  void increment() => setState(() => counter++);
+  Future<void> increment() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    setState(() {
+      counter++;
+    });
+
+    prefs.setInt('counter', counter);
+  }
+
+  Future<void> getCounter() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    setState(() {
+      counter = prefs.getInt('counter') ?? 0;
+    });
+  }
+
+  @override
+  void initState() {
+    getCounter();
+
+    super.initState();
+  }
 
   void decrement() {
     if (counter > 0) {
