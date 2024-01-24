@@ -37,19 +37,27 @@ class _CounterPanelState extends State<CounterPanel> {
     super.initState();
   }
 
-  void decrement() {
+  Future<void> decrement() async {
+    final prefs = await SharedPreferences.getInstance();
+
     if (counter > 0) {
       setState(() {
         counter --;
       });
+
+      prefs.setInt('counter', counter);
     }
   }
 
-  void zeroing() {
+  Future<void> zeroing() async {
+    final prefs = await SharedPreferences.getInstance();
+    
     if (counter != 0) {
       setState(() {
         counter = 0;
       });
+      
+      prefs.setInt('counter', counter);
     }
   }
 
