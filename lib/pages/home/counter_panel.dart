@@ -44,20 +44,12 @@ class CounterPanel extends StatelessWidget {
                   ),
                   height: 154,
                   width: 154,
-                  child: Column(
+                  child: const Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      const SizedBox(height: 25),
+                      SizedBox(height: 25),
+                      Counter(),
                       Text(
-                        counterProvider.counter.toString(),
-                        style: const TextStyle(
-                          fontSize: 48,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          height: 1,
-                        ),
-                      ),
-                      const Text(
                         'Dhikr',
                         style: TextStyle(
                           fontSize: 12,
@@ -104,6 +96,27 @@ class CounterPanel extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class Counter extends StatelessWidget {
+  const Counter({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final counterProvider = context.watch<CounterProvider>();
+
+    return Text(
+      counterProvider.counter.toString(),
+      style: const TextStyle(
+        fontSize: 48,
+        color: Colors.white,
+        fontWeight: FontWeight.bold,
+        height: 1,
+      ),
     );
   }
 }

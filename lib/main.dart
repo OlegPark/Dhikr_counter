@@ -1,4 +1,6 @@
+import 'package:dhikr_counter/providers/counter_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'pages/home/home.dart';
 
 void main() {
@@ -10,10 +12,15 @@ class DhikrCounter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(fontFamily: 'Gilroy'),
-      debugShowCheckedModeBanner: false,
-      home: const Home(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => CounterProvider()),
+      ],
+      child: MaterialApp(
+        theme: ThemeData(fontFamily: 'Gilroy'),
+        debugShowCheckedModeBanner: false,
+        home: const Home(),
+      ),
     );
   }
 }
