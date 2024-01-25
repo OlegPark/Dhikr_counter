@@ -1,68 +1,16 @@
 import 'package:dhikr_counter/constanst/constants.dart';
+import 'package:dhikr_counter/providers/counter_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:provider/provider.dart';
 
-class CounterPanel extends StatefulWidget {
+class CounterPanel extends StatelessWidget {
   const CounterPanel({super.key});
 
-  @override
-  State<CounterPanel> createState() => _CounterPanelState();
-}
-
-class _CounterPanelState extends State<CounterPanel> {
-  int counter = 0;
-
-  Future<void> increment() async {
-    final prefs = await SharedPreferences.getInstance();
-
-    setState(() {
-      counter++;
-    });
-
-    prefs.setInt('counter', counter);
-  }
-
-  Future<void> getCounter() async {
-    final prefs = await SharedPreferences.getInstance();
-
-    setState(() {
-      counter = prefs.getInt('counter') ?? 0;
-    });
-  }
-
-  @override
-  void initState() {
-    getCounter();
-
-    super.initState();
-  }
-
-  Future<void> decrement() async {
-    final prefs = await SharedPreferences.getInstance();
-
-    if (counter > 0) {
-      setState(() {
-        counter --;
-      });
-
-      prefs.setInt('counter', counter);
-    }
-  }
-
-  Future<void> zeroing() async {
-    final prefs = await SharedPreferences.getInstance();
-    
-    if (counter != 0) {
-      setState(() {
-        counter = 0;
-      });
-      
-      prefs.setInt('counter', counter);
-    }
-  }
-
+  
   @override
   Widget build(BuildContext context) {
+    final counterProvider = context.read<CounterProvider>();
+
     return Column(
       children: [
         Container(
@@ -76,7 +24,7 @@ class _CounterPanelState extends State<CounterPanel> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               GestureDetector(
-                onTap: () => decrement(),
+                onTap: () => counterProvider.decrement(),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
@@ -88,7 +36,7 @@ class _CounterPanelState extends State<CounterPanel> {
                 ),
               ),
               GestureDetector(
-                onTap: () => increment(),
+                onTap: () => counterProvider.increment(),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
@@ -101,7 +49,7 @@ class _CounterPanelState extends State<CounterPanel> {
                     children: [
                       const SizedBox(height: 25),
                       Text(
-                        counter.toString(),
+                        counterProvider.counter.toString(),
                         style: const TextStyle(
                           fontSize: 48,
                           color: Colors.white,
@@ -123,7 +71,7 @@ class _CounterPanelState extends State<CounterPanel> {
                 ),
               ),
               GestureDetector(
-                onTap: () => zeroing(),
+                onTap: () => counterProvider.zeroing(),
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
