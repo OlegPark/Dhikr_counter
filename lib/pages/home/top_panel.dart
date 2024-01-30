@@ -1,16 +1,14 @@
-import 'package:dhikr_counter/pages/home/home.dart';
+import 'package:dhikr_counter/providers/tabs_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../constanst/constants.dart';
 
 class TopPanel extends StatelessWidget {
-  // final bool isActive;
-  final Function toggle;
-  const TopPanel(this.toggle, {super.key,});
-
+  const TopPanel({super.key,});
 
   @override
   Widget build(BuildContext context) {
-    final isActive = context.findAncestorStateOfType<HomeState>()!.isActive;
+    final provider = context.watch<TabsProvider>();
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 20),
@@ -29,10 +27,10 @@ class TopPanel extends StatelessWidget {
                 children: [
                   Expanded(
                     child: GestureDetector(
-                      onTap: () => isActive ? null : toggle(),
+                      onTap: () => provider.isActive ? null : provider.toggle(),
                       child: Container(
                         decoration: BoxDecoration(
-                          color: isActive ? alphaBlue : Colors.white,
+                          color: provider.isActive ? alphaBlue : Colors.white,
                           borderRadius: BorderRadius.circular(8),
                         ),
                         height: 30,
@@ -41,7 +39,7 @@ class TopPanel extends StatelessWidget {
                           'Activity',
                           style: TextStyle(
                             fontSize: 12,
-                            color: isActive ? Colors.white : alphaGrey,
+                            color: provider.isActive ? Colors.white : alphaGrey,
                           ),
                         )
                       ),
@@ -49,10 +47,10 @@ class TopPanel extends StatelessWidget {
                   ),
                   Expanded(
                     child: GestureDetector(
-                      onTap: () => !isActive ? null : toggle(),
+                      onTap: () => !provider.isActive ? null : provider.toggle(),
                       child: Container(
                         decoration: BoxDecoration(
-                          color: !isActive ? alphaBlue : Colors.white,
+                          color: !provider.isActive ? alphaBlue : Colors.white,
                           borderRadius: BorderRadius.circular(8)
                         ),
                         height: 30,
@@ -61,7 +59,7 @@ class TopPanel extends StatelessWidget {
                           'Saved',
                           style: TextStyle(
                             fontSize: 12,
-                            color: !isActive ? Colors.white : alphaGrey,
+                            color: !provider.isActive ? Colors.white : alphaGrey,
                           ),
                         ),
                       ),
