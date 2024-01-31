@@ -69,15 +69,20 @@ class TopPanel extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            width: 54,
-            height: 38,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Colors.white,
-              ),
-            margin: const EdgeInsets.only(left: 20),
-            child: Image.asset('assets/images/menu.png'),
+          GestureDetector(
+            onTap: () {
+              
+            },
+            child: Container(
+              width: 54,
+              height: 38,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: Colors.white,
+                ),
+              margin: const EdgeInsets.only(left: 20),
+              child: Image.asset('assets/images/menu.png'),
+            ),
           ),
         ],
       ),
