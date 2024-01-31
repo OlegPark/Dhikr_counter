@@ -1,5 +1,6 @@
 import 'package:dhikr_counter/providers/tabs_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import '../../constanst/constants.dart';
 
@@ -70,9 +71,7 @@ class TopPanel extends StatelessWidget {
             ),
           ),
           GestureDetector(
-            onTap: () {
-              
-            },
+            onTap: () => context.go('/settings'),
             child: Container(
               width: 54,
               height: 38,
