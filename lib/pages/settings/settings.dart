@@ -17,7 +17,7 @@ class Settings extends StatelessWidget {
           children: [
             TextButton(
               onPressed: () {
-                context.go('/');
+                context.push('/');
               },
               child: const Text('Вперед'),
             ),
