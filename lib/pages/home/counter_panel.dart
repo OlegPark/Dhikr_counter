@@ -1,7 +1,10 @@
 import 'package:dhikr_counter/constanst/constants.dart';
+import 'package:dhikr_counter/models/dhikr.dart';
 import 'package:dhikr_counter/providers/counter_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
@@ -84,24 +87,10 @@ class CounterPanel extends StatelessWidget {
             showDialog(
               context: context,
               builder: (context) {
-                final providrCounter = context.read<CounterProvider>();
+                
 
 
-                return AlertDialog(
-                  title: Text('Добавить Зикр'),
-                  content: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text('Счётчик: ${providrCounter.counter}'),
-                      Text('Дата: ${DateFormat('dd.MM.yyyy').format(DateTime.now())}'),
-                      const SizedBox(height: 10),
-                      CupertinoTextField(
-                        placeholder: 'Введите заголовок',
-                      ),
-                    ],
-                  ),
-                );
+                return const AddDhikr();
               }
             );
           },
@@ -120,6 +109,65 @@ class CounterPanel extends StatelessWidget {
               ),
             ),
           ),
+        ),
+      ],
+    );
+  }
+}
+
+class AddDhikr extends StatefulWidget {
+  const AddDhikr({super.key});
+
+
+  @override
+  State<AddDhikr> createState() => _AddDhikrState();
+}
+
+class _AddDhikrState extends State<AddDhikr> {
+  TextEditingController controller = TextEditingController();
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final providrCounter = context.read<CounterProvider>();
+    return AlertDialog(
+      title: const Text('Добавить Зикр'),
+      content: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Text('Счётчик: ${providrCounter.counter}'),
+          Text('Дата: ${DateFormat('dd.MM.yyyy').format(DateTime.now())}'),
+          const SizedBox(height: 10),
+          CupertinoTextField(
+            controller: controller,
+            placeholder: 'Введите заголовок',
+          ),
+        ],
+      ),
+      actions: [
+        TextButton(
+          onPressed: () => context.pop(),
+          child: const Text('Отмена'),
+        ),
+        FilledButton(
+          onPressed: () {
+            Hive.box<Dhikr>(keyHiveDhikrBox).add(
+              Dhikr(
+                counter: providrCounter.counter,
+                title: controller.text,
+                date: DateTime.now(),
+              ),
+            );
+
+            context.pop();
+          },
+          child: const Text('Добавить'),
         ),
       ],
     );
