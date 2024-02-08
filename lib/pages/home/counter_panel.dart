@@ -1,6 +1,8 @@
 import 'package:dhikr_counter/constanst/constants.dart';
 import 'package:dhikr_counter/providers/counter_provider.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
 class CounterPanel extends StatelessWidget {
@@ -78,7 +80,31 @@ class CounterPanel extends StatelessWidget {
           ),
         ),
         GestureDetector(
-          onTap: () {},
+          onTap: () {
+            showDialog(
+              context: context,
+              builder: (context) {
+                final providrCounter = context.read<CounterProvider>();
+
+
+                return AlertDialog(
+                  title: Text('Добавить Зикр'),
+                  content: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text('Счётчик: ${providrCounter.counter}'),
+                      Text('Дата: ${DateFormat('dd.MM.yyyy').format(DateTime.now())}'),
+                      const SizedBox(height: 10),
+                      CupertinoTextField(
+                        placeholder: 'Введите заголовок',
+                      ),
+                    ],
+                  ),
+                );
+              }
+            );
+          },
           child: Container(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),

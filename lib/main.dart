@@ -1,13 +1,21 @@
+import 'package:dhikr_counter/hive/dhikr_adapter.dart';
 import 'package:dhikr_counter/pages/custom/custom.dart';
 import 'package:dhikr_counter/pages/settings/settings.dart';
 import 'package:dhikr_counter/providers/counter_provider.dart';
+import 'package:dhikr_counter/providers/hive_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:provider/provider.dart';
 import 'pages/home/home.dart';
 import 'providers/tabs_provider.dart';
+ 
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
 
-void main() {
+  await Hive.initFlutter();
+  Hive.registerAdapter(DhikrAdapter());
+
   runApp(const DhikrCounter());
 }
 
@@ -20,6 +28,7 @@ class DhikrCounter extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (_) => CounterProvider()),
         ChangeNotifierProvider(create: (_) => TabsProvider()),
+        ChangeNotifierProvider(create: (_) => HiveProvider()),
       ],
       child: MaterialApp.router(
         theme: ThemeData(fontFamily: 'Gilroy'),
