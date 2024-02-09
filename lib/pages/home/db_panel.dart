@@ -3,6 +3,7 @@ import 'package:dhikr_counter/models/dhikr.dart';
 import 'package:dhikr_counter/providers/hive_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:intl/intl.dart';
@@ -58,12 +59,16 @@ class HiveDhikrView extends StatelessWidget {
           return ValueListenableBuilder(
             valueListenable: Hive.box<Dhikr>(keyHiveDhikrBox).listenable(),
             builder: (context, box, child) {
+              final boxLenght = box.length;
+
               if (box.length ==0) {
                 return const Center(child: Text('Здесь пока ничего нет'),);
               }
+              
               return ListView.builder(
-              itemCount: box.length,
+              itemCount: boxLenght,
               itemBuilder: (context, index) {
+                index = box.length - 1 - index; // инвертация LisrView
                 return DhikrItem(box, index);
                 },
               );
@@ -134,7 +139,14 @@ class DhikrItem extends StatelessWidget {
             ),
           ),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return EditDhikrView(box: box, index: index);
+                },
+              );
+            },
             child: Container(
               color: Colors.transparent,
               height: 48,
@@ -144,6 +156,67 @@ class DhikrItem extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class EditDhikrView extends StatefulWidget {
+  const EditDhikrView({
+    super.key,
+    required this.box,
+    required this.index,
+  });
+
+  final Box<Dhikr> box;
+  final int index;
+
+  @override
+  State<EditDhikrView> createState() => _EditDhikrViewState();
+}
+
+class _EditDhikrViewState extends State<EditDhikrView> {
+  TextEditingController controller = TextEditingController();
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AlertDialog(
+      title: const Text('Ред. зикр'),
+      content: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          CupertinoTextField(
+            controller: controller,
+            placeholder: widget.box.getAt(widget.index)?.title,
+          ),
+        ],
+      ),
+      actions: [
+        IconButton(onPressed: () {
+          context.read<HiveProvider>().deleteDhikr(widget.index);
+
+          context.pop();
+          },
+          icon: const Icon(Icons.delete),
+        ),
+        TextButton(
+          onPressed: () => context.pop(),
+          child: const Text('Отмена'),
+        ),
+        FilledButton(
+          onPressed: () {
+            context.read<HiveProvider>().editDhikr(widget.index, controller.text);
+
+            context.pop();
+          },
+          child: const Text('Сохранить'),
+        ),
+      ],
     );
   }
 }

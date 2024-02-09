@@ -11,6 +11,4 @@ class Dhikr {
     required this.date,
   });
 
-  void edit() {}
-  void delete() {}
 }
