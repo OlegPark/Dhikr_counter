@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "538350826927",
+    "project_id": "dhikr-counter8",
+    "storage_bucket": "dhikr-counter8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:538350826927:android:f9a90fd8dd724d2eb6ab5a",
+        "android_client_info": {
+          "package_name": "com.example.dhikr_counter"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDg2MkUUx7nkno7oIFYczA0LzA3ALtDcYs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
