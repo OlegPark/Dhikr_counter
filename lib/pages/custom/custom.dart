@@ -13,7 +13,9 @@ class Custom extends StatelessWidget {
       ),
       body: const Center(
         child: Column(
-          children: [],
+          children: [
+            Text('это страница кастом для рекламы')
+          ],
         ),
       ),
     );
