@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_remote_config/firebase_remote_config.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -10,8 +11,8 @@ class Settings extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Settings'
+        title: Text(
+          'Settings'.tr()
           ),
       ),
       body: Center(
@@ -21,7 +22,7 @@ class Settings extends StatelessWidget {
               onPressed: () {
                 context.go('/');
               },
-              child: const Text('Вперед'),
+              child: Text('Go Home'.tr()),
             ),
             FutureBuilder(
               future: setupRemoteConfig(),

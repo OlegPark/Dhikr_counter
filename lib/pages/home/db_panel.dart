@@ -1,6 +1,7 @@
 import 'package:dhikr_counter/constanst/constants.dart';
 import 'package:dhikr_counter/models/dhikr.dart';
 import 'package:dhikr_counter/providers/hive_provider.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -27,9 +28,9 @@ class DBPanel extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Last saved dhikrs',
-              style: TextStyle(
+            Text(
+              'Last saved dhikrs'.tr(),
+              style: const TextStyle(
                 fontWeight: FontWeight.bold
               ),
             ),
@@ -62,7 +63,7 @@ class HiveDhikrView extends StatelessWidget {
               final boxLenght = box.length;
 
               if (box.length ==0) {
-                return const Center(child: Text('Здесь пока ничего нет'),);
+                return Center(child: Text('Empty'.tr()),);
               }
               
               return ListView.builder(
@@ -122,7 +123,7 @@ class DhikrItem extends StatelessWidget {
           ),
           Expanded(
             child: Text(
-              box.getAt(index)?.title ?? 'error title',
+              box.getAt(index)?.title ?? 'error title'.tr(),
               style: const TextStyle(
                 fontSize: 12,
               ),
@@ -186,7 +187,7 @@ class _EditDhikrViewState extends State<EditDhikrView> {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: const Text('Ред. зикр'),
+      title: Text('Edit Dhikr'.tr()),
       content: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -206,7 +207,7 @@ class _EditDhikrViewState extends State<EditDhikrView> {
         ),
         TextButton(
           onPressed: () => context.pop(),
-          child: const Text('Отмена'),
+          child: Text('Cancel'.tr()),
         ),
         FilledButton(
           onPressed: () {
@@ -214,7 +215,7 @@ class _EditDhikrViewState extends State<EditDhikrView> {
 
             context.pop();
           },
-          child: const Text('Сохранить'),
+          child: Text('Save'.tr()),
         ),
       ],
     );

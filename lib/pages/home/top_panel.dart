@@ -1,4 +1,5 @@
 import 'package:dhikr_counter/providers/tabs_provider.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
@@ -37,7 +38,7 @@ class TopPanel extends StatelessWidget {
                         height: 30,
                         alignment: Alignment.center,
                         child: Text(
-                          'Activity',
+                          'Activity'.tr(),
                           style: TextStyle(
                             fontSize: 12,
                             color: provider.isActive ? Colors.white : alphaGrey,
@@ -57,7 +58,7 @@ class TopPanel extends StatelessWidget {
                         height: 30,
                         alignment: Alignment.center,
                         child: Text(
-                          'Saved',
+                          'Saved'.tr(),
                           style: TextStyle(
                             fontSize: 12,
                             color: !provider.isActive ? Colors.white : alphaGrey,
