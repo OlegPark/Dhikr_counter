@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 class Custom extends StatelessWidget {
@@ -7,15 +8,10 @@ class Custom extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Settings'
-          ),
-      ),
+        title: Text('Custom'.tr())),
       body: const Center(
         child: Column(
-          children: [
-            Text('это страница кастом для рекламы')
-          ],
+          children: [],
         ),
       ),
     );

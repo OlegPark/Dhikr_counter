@@ -1,6 +1,7 @@
 import 'package:dhikr_counter/constanst/constants.dart';
 import 'package:dhikr_counter/models/dhikr.dart';
 import 'package:dhikr_counter/providers/counter_provider.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -49,20 +50,20 @@ class CounterPanel extends StatelessWidget {
                   ),
                   height: 154,
                   width: 154,
-                  child: const Column(
+                  child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      SizedBox(height: 25),
-                      Counter(),
+                      const SizedBox(height: 25),
+                      const Counter(),
                       Text(
-                        'Dhikr',
-                        style: TextStyle(
+                        'Dhikr'.tr(),
+                        style: const TextStyle(
                           fontSize: 12,
                           color: Colors.white,
                           height: 1,
                         ),
                       ),
-                      SizedBox(height: 1),
+                      const SizedBox(height: 1),
                     ],
                   ),
                 ),
@@ -102,9 +103,9 @@ class CounterPanel extends StatelessWidget {
             height: 45,
             alignment: Alignment.center,
             margin: const EdgeInsets.only(bottom: 14),
-            child: const Text(
-              'Save Dhikr',
-              style: TextStyle(
+            child: Text(
+              'Save Dhikr'.tr(),
+              style: const TextStyle(
                 color: alphaBlue
               ),
             ),
@@ -136,24 +137,24 @@ class _AddDhikrState extends State<AddDhikr> {
   Widget build(BuildContext context) {
     final providrCounter = context.read<CounterProvider>();
     return AlertDialog(
-      title: const Text('Добавить Зикр'),
+      title: Text('Add Dhikr'.tr()),
       content: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text('Счётчик: ${providrCounter.counter}'),
-          Text('Дата: ${DateFormat('dd.MM.yyyy').format(DateTime.now())}'),
+          Text('${'Counter:'.tr()} ${providrCounter.counter}'),
+          Text('${'Date:'.tr()} ${DateFormat('dd.MM.yyyy').format(DateTime.now())}'),
           const SizedBox(height: 10),
           CupertinoTextField(
             controller: controller,
-            placeholder: 'Введите заголовок',
+            placeholder: 'Enter title'.tr(),
           ),
         ],
       ),
       actions: [
         TextButton(
           onPressed: () => context.pop(),
-          child: const Text('Отмена'),
+          child: Text('Cancel'.tr()),
         ),
         FilledButton(
           onPressed: () {
@@ -167,7 +168,7 @@ class _AddDhikrState extends State<AddDhikr> {
 
             context.pop();
           },
-          child: const Text('Добавить'),
+          child: Text('Add'.tr()),
         ),
       ],
     );
