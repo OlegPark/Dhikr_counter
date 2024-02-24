@@ -3,6 +3,8 @@ import 'package:dhikr_counter/pages/custom/custom.dart';
 import 'package:dhikr_counter/pages/settings/settings.dart';
 import 'package:dhikr_counter/providers/counter_provider.dart';
 import 'package:dhikr_counter/providers/hive_provider.dart';
+import 'package:easy_localization/easy_localization.dart';
+import 'package:easy_localization_loader/easy_localization_loader.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/adapters.dart';
@@ -22,7 +24,21 @@ Future<void> main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(DhikrAdapter());
 
-  runApp(const DhikrCounter());
+  await EasyLocalization.ensureInitialized();
+
+  runApp(
+    EasyLocalization(
+      path: 'assets/langs/langs.csv',
+      fallbackLocale: const Locale('en'),
+      assetLoader: CsvAssetLoader(),
+      supportedLocales: const [
+        Locale('en'),
+        Locale('ru'),
+        Locale('es'),
+      ],
+      child: const DhikrCounter(),
+    ),
+  );
 }
 
 class DhikrCounter extends StatelessWidget {
@@ -40,6 +56,9 @@ class DhikrCounter extends StatelessWidget {
         theme: ThemeData(fontFamily: 'Gilroy'),
         debugShowCheckedModeBanner: false,
         routerConfig: router,
+        localizationsDelegates: context.localizationDelegates,
+        supportedLocales: context.supportedLocales,
+        locale: context.locale,
       ),
     );
   }
