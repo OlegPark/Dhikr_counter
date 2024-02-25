@@ -33,6 +33,7 @@ class Settings extends StatelessWidget {
                 return Text(snapshot.data?.getString('hello_text') ?? '');
               }
             ),
+            
           ],
         ),
       ),
