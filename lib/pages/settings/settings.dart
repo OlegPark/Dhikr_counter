@@ -44,7 +44,23 @@ class Settings extends StatelessWidget {
             const SizedBox(height: 20,),
             ListTile(
               tileColor: Colors.white,
-              title: Text('Languge'.tr()),
+              title: Text('Language'.tr()),
+              leading: const Icon(
+                CupertinoIcons.globe,
+                color: Colors.black,
+              ),
+              trailing: FilledButton(
+                child: Text(
+                  launguageMap[context.locale.languageCode] ??
+                    context.locale.languageCode,
+                  style: const TextStyle(
+                    color: Colors.white
+                  ),
+                ),
+                onPressed: () {
+                  
+                },
+              ),
             ),
           ],
         ),
