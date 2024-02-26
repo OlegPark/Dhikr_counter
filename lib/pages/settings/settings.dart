@@ -58,7 +58,42 @@ class Settings extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  
+                  showModalBottomSheet(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          const Padding(
+                            padding: EdgeInsets.all(20),
+                            child: Icon(Icons.swipe_down),
+                          ),
+                          SizedBox(
+                            height: 300,
+                            child: ListView(
+                              children: locales.map((Locale locale) {
+                                return ListTile(
+                                  title: Column(
+                                    children: [
+                                      Text(launguageMap[locale.languageCode] ??
+                                          locale.languageCode,),
+                                      const Divider(),
+                                    ],
+                                  ),
+                                  onTap: () {
+                                    EasyLocalization.of(context)
+                                        ?.setLocale(locale);
+
+                                    Navigator.pop(context);
+                                  },
+                                );
+                              }).toList(),
+                            ),
+                          ),
+                        ],
+                      );
+                    },
+                  );
                 },
               ),
             ),
