@@ -9,6 +9,14 @@ class Settings extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final locales = EasyLocalization.of(context)?.supportedLocales ??
+      const [
+        Locale('en'),
+        Locale('ru'),
+        Locale('es'),
+      ];
+
+
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -33,13 +41,23 @@ class Settings extends StatelessWidget {
                 return Text(snapshot.data?.getString('hello_text') ?? '');
               }
             ),
-            
+            const SizedBox(height: 20,),
+            ListTile(
+              tileColor: Colors.white,
+              title: Text('Languge'.tr()),
+            ),
           ],
         ),
       ),
     );
   }
 }
+
+const Map<String, String> launguageMap ={
+  'en': 'English',
+  'es': 'Español',
+  'ru': 'Русский',
+};
 
 Future<FirebaseRemoteConfig> setupRemoteConfig() async {
   final FirebaseRemoteConfig remoteConfig = FirebaseRemoteConfig.instance;
@@ -53,3 +71,58 @@ Future<FirebaseRemoteConfig> setupRemoteConfig() async {
 
     return remoteConfig;
 }
+
+
+//  tileColor: Colors.white,
+//               title: Text('Language'.tr()),
+//               leading: const Icon(
+//                 CupertinoIcons.globe,
+//                 color: Colors.black,
+//               ),
+//               trailing: FilledButton(
+//                 child: Text(
+//                   launguageMap[context.locale.languageCode] ??
+//                     context.locale.languageCode,
+//                   style: const TextStyle(
+//                     color: Colors.white,
+//                   ),
+//                 ),
+//                 onPressed: () {
+//                   showModalBottomSheet(
+//                     context: context,
+//                     builder: (BuildContext context) {
+//                       return Column(
+//                         mainAxisSize: MainAxisSize.min,
+//                         children: [
+//                           const Padding(
+//                             padding: EdgeInsets.all(20.0),
+//                             child: Icon(Icons.swipe_down),
+//                           )
+//                           SizedBox(
+//                             height: 300,
+//                             child: ListView(
+//                               children: locales.map((Locale locale){
+//                                 return ListTile(
+//                                   title: Column(
+//                                     children: [
+//                                       Text(launguageMap[locale.languageCode] ??
+//                                         locale.languageCode),
+//                                       const Divider(),
+//                                     ],
+//                                   ),
+//                                   onTap: () {
+//                                     EasyLocalization.of(context)
+//                                         ?.setLocale(locale);
+
+//                                     Navigator.pop(context;)
+//                                   },
+//                                 );
+//                               }),.toList(),
+//                             ),
+//                           ),
+//                         ],
+//                       ),
+//                     },
+//                   );
+//                 },
+//               ),
