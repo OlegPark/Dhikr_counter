@@ -52,13 +52,16 @@ class DhikrCounter extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => TabsProvider()),
         ChangeNotifierProvider(create: (_) => HiveProvider()),
       ],
-      child: MaterialApp.router(
-        theme: ThemeData(fontFamily: 'Gilroy'),
-        debugShowCheckedModeBanner: false,
-        routerConfig: router,
-        localizationsDelegates: context.localizationDelegates,
-        supportedLocales: context.supportedLocales,
-        locale: context.locale,
+      child: KeyedSubtree(
+        key: ValueKey(context.locale),
+        child: MaterialApp.router(
+          theme: ThemeData(fontFamily: 'Gilroy'),
+          debugShowCheckedModeBanner: false,
+          routerConfig: router,
+          localizationsDelegates: context.localizationDelegates,
+          supportedLocales: context.supportedLocales,
+          locale: context.locale,
+        ),
       ),
     );
   }
