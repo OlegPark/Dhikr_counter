@@ -1,19 +1,13 @@
-# dhikr_counter
+<h1 align="center">Dhikr counter</h1>
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-<h1 align="center">Hi there, I'm <a href="https://daniilshat.ru/" target="_blank">Oleg</a> 
-<img src="https://github.com/blackcater/blackcater/raw/main/images/Hi.gif" height="32"/></h1>
-<h3 align="center">Computer science student, IT news writer from Russia 🇷🇺</h3>
+<p align="center">
+    <a href="https://flutter.dev/">
+        <img src="https://img.shields.io/badge/flutter-44D0FA?logo=flutter&style=for-the-badge&logoColor=white">
+    </a>
+    <a href="https://dart.dev/">
+        <img src="https://img.shields.io/badge/Dart-30B7F3?logo=dart&style=for-the-badge&logoColor=white">
+    </a>
+    <a href="https://www.figma.com/">
+        <img src="https://img.shields.io/badge/Figma-white?logo=figma&style=for-the-badge">
+    </a>
+<br>
