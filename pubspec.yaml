@@ -46,6 +46,7 @@ dependencies:
   firebase_remote_config: ^4.3.8
   easy_localization: ^3.0.4
   easy_localization_loader: ^2.0.1
+  icons_launcher: ^2.1.7
 
 dev_dependencies:
   flutter_test:
@@ -100,3 +101,11 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+icons_launcher:
+  image_path: "assets/images/iconApp.jpg"
+  platforms:
+    android:
+      enable: true
+    ios:
+      enable: true
