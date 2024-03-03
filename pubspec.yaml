@@ -47,6 +47,7 @@ dependencies:
   easy_localization: ^3.0.4
   easy_localization_loader: ^2.0.1
   icons_launcher: ^2.1.7
+  flutter_native_splash: ^2.3.7
 
 dev_dependencies:
   flutter_test:
@@ -109,3 +110,16 @@ icons_launcher:
       enable: true
     ios:
       enable: true
+
+# отступ слева нулевой
+flutter_native_splash:
+  color: '#ffffff'
+  image: assets/images/splash.jpg
+  color_dark: '#ffffff'
+  image_dark: assets/images/splash.jpg
+  android_12:
+    image: assets/images/splash.jpg
+    color: '#ffffff'
+    image_dark: assets/images/splash.jpg
+    color_dark: '#ffffff'
+  web: false
