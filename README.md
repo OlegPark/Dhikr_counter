@@ -13,3 +13,6 @@
         <img src="https://img.shields.io/badge/Figma-white?logo=figma&style=for-the-badge">
     </a>
 <br>
+<p align="center">
+    Application for counting dhikr prayers
+</p>
