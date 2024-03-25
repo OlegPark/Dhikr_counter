@@ -1,15 +1,10 @@
-<h1 align="center">Dhikr counter</h1>
+<h1>Dhikr counter</h1>
 
 [![Platform](https://img.shields.io/badge/Platform-Android%20%7C%20IOS%20%7C%20Web-green)](https://flutter.dev/)
 
 <p align="center">
-    <a href="https://flutter.dev/">
-        <img src="https://img.shields.io/badge/flutter-44D0FA?logo=flutter&style=for-the-badge&logoColor=white">
-    </a>
-    <a href="https://dart.dev/">
-        <img src="https://img.shields.io/badge/Dart-30B7F3?logo=dart&style=for-the-badge&logoColor=white">
-    </a>
-<br>
-<p align="center">
     Application for counting dhikr prayers
 </p>
+
+| ![1](https://github.com/OlegPark/Dhikr_counter/assets/127476229/3376bd9f-a574-40d6-9914-00b9df2337b0) | ![2](https://github.com/OlegPark/Dhikr_counter/assets/127476229/7b0c2741-d5eb-4c40-8c90-8cbf53effc42) | ![3](https://github.com/OlegPark/Dhikr_counter/assets/127476229/dc85e557-c142-4590-9aae-2394033541bb) | ![4](https://github.com/OlegPark/Dhikr_counter/assets/127476229/c8ab49ea-bf84-4ccf-ac9d-7a556d7fbb6d) | 
+| :------------: | :------------: | :------------: | :------------: |
