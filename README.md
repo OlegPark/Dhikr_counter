@@ -6,5 +6,6 @@
     Application for counting dhikr prayers
 </p>
 
-| ![1](https://github.com/OlegPark/Dhikr_counter/assets/127476229/3376bd9f-a574-40d6-9914-00b9df2337b0) | ![2](https://github.com/OlegPark/Dhikr_counter/assets/127476229/7b0c2741-d5eb-4c40-8c90-8cbf53effc42) | ![3](https://github.com/OlegPark/Dhikr_counter/assets/127476229/dc85e557-c142-4590-9aae-2394033541bb) | ![4](https://github.com/OlegPark/Dhikr_counter/assets/127476229/c8ab49ea-bf84-4ccf-ac9d-7a556d7fbb6d) | 
-| :------------: | :------------: | :------------: | :------------: |
+| ![1](https://github.com/OlegPark/Dhikr_counter/assets/127476229/3376bd9f-a574-40d6-9914-00b9df2337b0) | ![2](https://github.com/OlegPark/Dhikr_counter/assets/127476229/8a6d8304-3df2-4b5b-822b-850f8b1b9b1e)
+ | ![4](https://github.com/OlegPark/Dhikr_counter/assets/127476229/c8ab49ea-bf84-4ccf-ac9d-7a556d7fbb6d) | 
+| :------------: | :------------: | :------------: |
