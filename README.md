@@ -9,9 +9,6 @@
     <a href="https://dart.dev/">
         <img src="https://img.shields.io/badge/Dart-30B7F3?logo=dart&style=for-the-badge&logoColor=white">
     </a>
-    <a href="https://www.figma.com/">
-        <img src="https://img.shields.io/badge/Figma-white?logo=figma&style=for-the-badge">
-    </a>
 <br>
 <p align="center">
     Application for counting dhikr prayers
