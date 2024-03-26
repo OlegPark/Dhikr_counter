@@ -1,3 +1,5 @@
+<img align="left" style="padding-right:15px" src="https://github.com/OlegPark/Dhikr_counter/assets/127476229/24928fc0-0cfa-4fcc-85dd-f506d76b63e1" width="40px">
+
 <h1>Dhikr counter</h1>
 
 [![Platform](https://img.shields.io/badge/Platform-Android%20%7C%20IOS%20%7C%20Web-green)](https://flutter.dev/)
