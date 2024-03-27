@@ -1,7 +1,9 @@
 
 <h1 align="center">Dhikr counter</h1>
 
-[![Platform](https://img.shields.io/badge/Platform-Android%20%7C%20IOS%20%7C%20Web-green)](https://flutter.dev/)
+<p align="center">
+     [![Platform](https://img.shields.io/badge/Platform-Android%20%7C%20IOS%20%7C%20Web-green)](https://flutter.dev/)
+</p>
 
 <p align="center">
      Application for counting dhikr prayers
