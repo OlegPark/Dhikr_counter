@@ -3,9 +3,10 @@
 
 <div align="center">
 
-![Static Badge](https://img.shields.io/badge/Platform-Android%20%7C%20IOS%20%7C%20Web-green)
 [![Flutter](https://img.shields.io/badge/flutter-44D0FA?logo=flutter&style=for-the-badge&logoColor=white)](https://flutter.dev/)
 [![Dart](https://img.shields.io/badge/Dart-30B7F3?logo=dart&style=for-the-badge&logoColor=white)](https://dart.dev/)
+[![Firebase](https://img.shields.io/badge/firebase-white?logo=firebase&style=for-the-badge)](https://firebase.google.com/)
+![Static Badge](https://img.shields.io/badge/Platform-Android%20%7C%20IOS%20%7C%20Web-green)
 
 </div>
 
